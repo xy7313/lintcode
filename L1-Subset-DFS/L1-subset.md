@@ -109,5 +109,8 @@ continu用法？这个太初级了吧，最需要注意的就是 for循环递归
 
 所有的recursion问题你都可以想象成一棵树。subset上面每一个树的节点都是结果。而permutation上面只有叶子节点才是结果
 
-##例3：[ Permutations](http://www.lintcode.com/en/problem/permutations-ii/)
+##例4：[ Permutations](http://www.lintcode.com/en/problem/permutations-ii/)
 
+##strStr
+
+##strStr2

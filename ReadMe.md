@@ -1,4 +1,5 @@
 lintcode 题解
+(如果是和leetcode重复的题，都在出门左转的repo里，就不重复放了)
 大纲是
 subset
 substring
