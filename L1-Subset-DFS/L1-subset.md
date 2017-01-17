@@ -105,6 +105,9 @@ public class Solution {
 subset2 需要注意。。
 continu用法？这个太初级了吧，最需要注意的就是 for循环递归调用前的if判断
 
-permutation
+##例3：[ Permutations](http://www.lintcode.com/en/problem/permutations/)
 
 所有的recursion问题你都可以想象成一棵树。subset上面每一个树的节点都是结果。而permutation上面只有叶子节点才是结果
+
+##例3：[ Permutations](http://www.lintcode.com/en/problem/permutations-ii/)
+
