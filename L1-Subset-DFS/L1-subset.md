@@ -62,8 +62,7 @@ class Solution {
   5. 要记得递归完成后subset.remove(subset.size() - 1)，这就是BackTracking，把刚才加进去的那一个清除掉 ，回到上一步，再继续向后进行，刚才添加进去的那个就是idx=subset.size() - 1，因为我们是往list添加元素，那么当前元素就是添加在list后面，我们回溯是一层一层上来，就是从后一层一层把元素remove掉，当前就remove目前的最后的元素
   6. DFS有两种实现方式，一种是递归，一种是非递归，递归只算作是一种实现的方式
 
-##例2 [Leetcode 90. Subsets II](https://leetcode.com/problems/subsets-ii/)
-[solution-github](https://github.com/xy7313/leetEM/blob/master/90subset2.java)
+##例2 [ Subsets II](http://www.lintcode.com/en/problem/subsets-ii/)
 
 ####1. 题目分析
 跟上题不一样的是 input数组中有重复元素
