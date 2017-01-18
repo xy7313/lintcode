@@ -10,13 +10,15 @@ class Solution {
        int start = 0, end = nums.length-1;
        while(start<end){
            int mid = start+(end-start)/2;
+           //下面两句可以合并成 if (nums[mid]>=target) end = mid;
            if(nums[mid]==target) end=mid;
            else if (nums[mid]>target) end = mid-1;
            else start = mid+1;
        }
-       if (nums[end] == target) {
-            return end;
-        }
+       //明显循环结束，start==end，这个判断没有用
+    //    if (nums[end] == target) {
+    //         return end;
+    //     }
         if (nums[start] == target) {
             return start;
         }
