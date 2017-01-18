@@ -48,6 +48,7 @@ public class Solution {
        int start = 0, end = nums.length-1;
        while(start<end){
            int mid = start+(end-start)/2;
+           //九章给的答案，if(nums[mid] == target) start=mid; this means recursively call binary search on the right half of the array including nums[mid]
            if(nums[mid]==target&&(mid==(nums.length-1)||nums[mid+1]!=target)) return mid;
            else if (nums[mid]>target) end = mid-1;
            else start = mid+1;
