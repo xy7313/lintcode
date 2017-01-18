@@ -1,5 +1,5 @@
 lintcode 题解
-(如果是和leetcode重复的题，都在出门左转的repo里，就不重复放了)
+(如果是和leetcode重复的题，都在出门左转的repo里，就不重复放了，不同平台输入输出稍有不同，留一下就好)
 大纲是
 subset
 substring

@@ -1,4 +1,14 @@
 subset-DFS+Backtracking系列，有模板方法可以记
+共六题，
+前四提完整笔记在简书：http://www.jianshu.com/p/11ad5ce0daad
+后两题在：
+1. subset
+2. subset2
+5. Permutations
+6. permutations2
+3. strStr
+4. strStr2
+
 ##例1：[ Subset](http://www.lintcode.com/en/problem/subsets/)
 ####1. 题目分析
   1. 首先 ，这个题是NP问题，没有多项式时间内的算法，只能用搜索解决的问题
@@ -22,38 +32,8 @@ permutation
 =O(n*n!) n!个答案
 n queens 不知道有几个答案
 =O(n*s) s 是答案的个数
-####4. code
 
-```
-class Solution {
-    /**
-     * @param S: A set of numbers.
-     * @return: A list of lists. All valid subsets.
-     */
-    public ArrayList<ArrayList<Integer>> subsets(int[] nums) { 
-        if(nums==null||nums.length==0) return null;
-        ArrayList<ArrayList<Integer>> results = new ArrayList<>();
-        //把空集开头的所有集合放入result
-        dfsHelper(nums,0,new ArrayList<Integer>(), results);
-        return results;
-    }
-
-    private void dfsHelper(int[] nums, 
-                            int startIndex, 
-                            ArrayList<Integer> subset, 
-                            ArrayList<ArrayList<Integer>> results){
-        //deep copy,否则后面操作subset，subset的内容就改变了
-        results.add(new ArrayList<Integer>(subset));
-        for(int i = startIndex; i<nums.length;i++){
-            subset.add(nums[i]);
-            dfsHelper(nums,i+1,subset,results);
-            subset.remove(subset.size()-1);
-        }   
-    }
-}
-```
-
-####5. 一些细节
+####4. 一些细节
   1. 库函数 Arrays.sort()是用的quick sort实现，可以认为是nlogn的复杂度
   2. 代码中写的deep copy，java默认都是pass by reference ，这里不new的话传递的是指向subset的reference，后面subset改变，results中加入的subset也会改变，最后返回就变成了[[],[],[],[]......]
   3. 这里不可以用results.addAll(xxx) ，因为addAll 表示，把xxx中的元素都加入到results中，我们是需要加入list，而不是list中的元素
@@ -76,32 +56,7 @@ class Solution {
 ####3. 时间复杂度分析
 O(n^2)
 
-####4. code
-```
-public class Solution {
-    
-    public List<List<Integer>> subsetsWithDup(int[] nums) {
-        List<List<Integer>> results = new ArrayList<>();
-        if(nums==null||nums.length==0) return results;
-        Arrays.sort(nums);
-        ArrayList<Integer> subset = new ArrayList<>();
-        dfsHelper(0,nums,subset,results);
-        return results;
-    }
-    private void dfsHelper(int start, int[] nums, ArrayList<Integer> subset, List<List<Integer>> results){
-        results.add(new ArrayList(subset));
-        for(int i = start; i<nums.length; i++){
-            if(i>start&&nums[i]==nums[i-1]) continue;
-            subset.add(nums[i]);
-            dfsHelper(i+1,nums,subset,results);
-            subset.remove(subset.size()-1);
-        }  
-    }
-    
-}
-```
-
-####5. 一些细节
+####4. 一些细节
 subset2 需要注意。。
 continu用法？这个太初级了吧，最需要注意的就是 for循环递归调用前的if判断
 
