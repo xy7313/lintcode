@@ -15,10 +15,6 @@ class Solution {
            else if (nums[mid]>target) end = mid-1;
            else start = mid+1;
        }
-       //明显循环结束，start==end，这个判断没有用
-    //    if (nums[end] == target) {
-    //         return end;
-    //     }
         if (nums[start] == target) {
             return start;
         }
