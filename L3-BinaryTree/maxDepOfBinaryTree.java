@@ -15,7 +15,6 @@ public class Solution {
      * @return: An integer.
      */
     public int maxDepth(TreeNode root) {
-        // write your code here
         int dep  = 0;
         // null or leaf
         if (root == null) {
