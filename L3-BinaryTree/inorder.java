@@ -20,7 +20,8 @@ public class Solution {
         TreeNode now = root;
         while (now != null || !stack.empty()) {
             while(now != null){
-                stack.add(now);
+                //stack -- push, add also works
+                stack.push(now);
                 now = now.left;
             }
             //Stack peek(): Looks at the object at the top of this stack without removing it from the stack. return the object at the top of this stack; 
