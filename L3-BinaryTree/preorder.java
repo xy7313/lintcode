@@ -49,7 +49,7 @@ public class Solution {
         traverse(root.right, result);
     }
 
-    //recursive-divide and conquer
+    //recursive- divide-conquer
     public ArrayList<Integer> preorderTraversal(TreeNode root) {
         ArrayList<Integer> result = new ArrayList<>();
         if(root==null) return result;

@@ -46,7 +46,7 @@ public class Solution {
         
         return postorder;
     }
-    //recursive-divide and conquer
+    //recursive- divide-conquer
      public ArrayList<Integer> postorderTraversal(TreeNode root) {
         ArrayList<Integer> postorder = new ArrayList<>();
         if(root==null) return postorder;
