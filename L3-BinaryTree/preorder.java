@@ -35,4 +35,33 @@ public class Solution {
         }
         return preorder;
     }
+
+    //recursive-traverse
+    public ArrayList<Integer> preorderTraversal(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        traverse(root,result);
+        return result;
+    }
+    private void traverse(TreeNode root, ArrayList<Integer> result){
+        if(root==null) return;
+        result.add(root.val);
+        traverse(root.left, result);
+        traverse(root.right, result);
+    }
+
+    //recursive-divide and conquer
+    public ArrayList<Integer> preorderTraversal(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        if(root==null) return result;
+        
+        //divide
+        ArrayList<Integer> left = preorderTraversal(root.left);
+        ArrayList<Integer> right = preorderTraversal(root.right);
+        //conquer
+        result.add(root.val);
+        result.addAll(left);
+        result.addAll(right);
+        
+        return result;
+    }
 }
