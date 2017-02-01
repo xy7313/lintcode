@@ -22,8 +22,7 @@ public class Solution {
         if(root==null) return paths;
         
         //leaf
-        if(root.left == null && root.right == null)
-        {
+        if(root.left == null && root.right == null){
             paths.add(root.val+"");
             return paths;
         }
