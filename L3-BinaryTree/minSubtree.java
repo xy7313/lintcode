@@ -31,3 +31,38 @@ public class Solution {
         return sum;
     }
 }
+
+//only divide-conquer?
+
+public class Solution {
+    class Result{
+        int sum;
+        int min;
+        TreeNode minroot;
+        public Result(int sum,  TreeNode minroot,int min){
+            this.sum = sum;
+            this.minroot=minroot;
+            this.min = min;
+        }
+    }
+    
+    public TreeNode findSubtree(TreeNode root){
+        return helper(root).minroot;
+    }
+    private Result helper(TreeNode root){
+        if(root==null) return new Result(0,null,Integer.MAX_VALUE);
+        //divide
+        Result left = helper(root.left);
+        Result right = helper(root.right);
+        //conquer
+        Result r = new Result(root.val,root,root.val);
+        r.sum = root.val+left.sum+right.sum;
+        if(r.sum<left.min&&r.sum<right.min){
+            return new Result(r.sum,r.minroot,r.sum);
+        }else if(r.sum>left.min&&left.min<right.min){
+            return new Result(r.sum,left.minroot,left.min);
+        }else{
+            return new Result(r.sum,right.minroot,right.min);
+        }
+    }
+}
