@@ -32,7 +32,6 @@ public class Solution {
     private Result helper(TreeNode root){
         if(root==null) return new Result(true,0);
     
-    
         Result left = helper(root.left);
         Result right = helper(root.right);
         if(!left.isBalanced || !right.isBalanced || Math.abs(left.maxdepth-right.maxdepth)>1){

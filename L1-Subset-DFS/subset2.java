@@ -11,6 +11,7 @@ public class Solution {
     private void dfsHelper(int start, int[] nums, ArrayList<Integer> subset, List<List<Integer>> results){
         results.add(new ArrayList(subset));
         for(int i = start; i<nums.length; i++){
+            //整道题中最与众不同和重要的一句话，if
             if(i>start&&nums[i]==nums[i-1]) continue;
             subset.add(nums[i]);
             dfsHelper(i+1,nums,subset,results);
