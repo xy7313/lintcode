@@ -63,9 +63,7 @@ public class Solution {
             right.first.prev = node;
             node.next = right.first;
         }
-        
-        return cur;
-       
+        return cur; 
     }
 }
 
@@ -73,7 +71,7 @@ public class Solution {
 
 
 
-
+   
 
 
 
