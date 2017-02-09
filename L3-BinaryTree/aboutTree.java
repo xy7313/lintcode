@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.Stack;
 
 /**
- * ref: http://blog.csdn.net/fightforyourdream/article/details/16843303
+ * ref: http://blog.csdn.net/fightforyourdream/article/details/16843303 面试大总结之二：Java搞定面试中的二叉树题目
  * 
  * TODO: 一定要能熟练地写出所有问题的递归和非递归做法！
  * 
@@ -29,104 +29,6 @@ import java.util.Stack;
  * 14. 判断二叉树是不是完全二叉树：isCompleteBinaryTree, isCompleteBinaryTreeRec
  * 
  */
-public class Demo {
-
-	/*
-	 			 1 
-		        / \ 
-		       2   3 
-		      / \   \ 
-		     4  5   6 
-	 */
-	public static void main(String[] args) {
-		TreeNode r1 = new TreeNode(1);
-		TreeNode r2 = new TreeNode(2);
-		TreeNode r3 = new TreeNode(3);
-		TreeNode r4 = new TreeNode(4);
-		TreeNode r5 = new TreeNode(5);
-		TreeNode r6 = new TreeNode(6);
-		
-		r1.left = r2;
-		r1.right = r3;
-		r2.left = r4;
-		r2.right = r5;
-		r3.right = r6;
-		
-//		System.out.println(getNodeNumRec(r1));
-//		System.out.println(getNodeNum(r1));
-//		System.out.println(getDepthRec(r1));
-//		System.out.println(getDepth(r1));
-		
-//		preorderTraversalRec(r1);
-//		System.out.println();
-//		preorderTraversal(r1);
-//		System.out.println();
-//		inorderTraversalRec(r1);
-//		System.out.println();
-//		inorderTraversal(r1);
-//		System.out.println();
-//		postorderTraversalRec(r1);
-//		System.out.println();
-//		postorderTraversal(r1);
-//		System.out.println();
-//		levelTraversal(r1);
-//		System.out.println();
-//		levelTraversalRec(r1);
-//		System.out.println();
-		
-//		TreeNode tmp = convertBSTRec(r1);
-//		while(true){
-//			if(tmp == null){
-//				break;
-//			}
-//			System.out.print(tmp.val + " ");
-//			if(tmp.right == null){
-//				break;
-//			}
-//			tmp = tmp.right;
-//		}
-//		System.out.println();
-//		while(true){
-//			if(tmp == null){
-//				break;
-//			}
-//			System.out.print(tmp.val + " ");
-//			if(tmp.left == null){
-//				break;
-//			}
-//			tmp = tmp.left;
-//		}
-		
-		
-//		TreeNode tmp = convertBST2DLL(r1);
-//		while(true){
-//			if(tmp == null){
-//				break;
-//			}
-//			System.out.print(tmp.val + " ");
-//			if(tmp.right == null){
-//				break;
-//			}
-//			tmp = tmp.right;
-//		}
-		
-//		System.out.println(getNodeNumKthLevelRec(r1, 2));
-//		System.out.println(getNodeNumKthLevel(r1, 2));
-		
-//		System.out.println(getNodeNumLeafRec(r1));
-//		System.out.println(getNodeNumLeaf(r1));
-		
-//		System.out.println(isSame(r1, r1));
-//		inorderTraversal(r1);
-//		System.out.println();
-//		mirror(r1);
-//		TreeNode mirrorRoot = mirrorCopy(r1);
-//		inorderTraversal(mirrorRoot);
-		
-		System.out.println(isCompleteBinaryTree(r1));
-		System.out.println(isCompleteBinaryTreeRec(r1));
-		
-	}
 
 	private static class TreeNode {
 		int val;
@@ -139,7 +41,7 @@ public class Demo {
 	}
 
 	/**
-	 * 求二叉树中的节点个数递归解法： O(n)
+	 * 1.1. 求二叉树中的节点个数递归解法： O(n)
 	 * （1）如果二叉树为空，节点个数为0 
 	 * （2）如果二叉树不为空，二叉树节点个数 = 左子树节点个数 +
 	 *    	      右子树节点个数 + 1
@@ -153,7 +55,7 @@ public class Demo {
 	}
 	
 	/**
-	 *  求二叉树中的节点个数迭代解法O(n)：基本思想同LevelOrderTraversal，
+	 * 1.2 求二叉树中的节点个数迭代解法O(n)：基本思想同LevelOrderTraversal，
 	 *  即用一个Queue，在Java里面可以用LinkedList来模拟 
 	 */
 	public static int getNodeNum(TreeNode root) {
@@ -175,12 +77,11 @@ public class Demo {
 				count++;
 			}
 		}
-		
 		return count;
 	}
 
 	/**
-	 * 求二叉树的深度（高度） 递归解法： O(n)
+	 * 2.1求二叉树的深度（高度） 递归解法： O(n)
 	 * （1）如果二叉树为空，二叉树的深度为0 
 	 * （2）如果二叉树不为空，二叉树的深度 = max(左子树深度， 右子树深度) + 1
 	 */
@@ -195,7 +96,7 @@ public class Demo {
 	}
 	
 	/**
-	 * 求二叉树的深度（高度） 迭代解法： O(n)
+	 * 2.2求二叉树的深度（高度） 迭代解法： O(n)
 	 * 基本思想同LevelOrderTraversal，还是用一个Queue
 	 */
 	public static int getDepth(TreeNode root) {
@@ -235,7 +136,8 @@ public class Demo {
 	
 
 	/**
-	 * 前序遍历，中序遍历，后序遍历 前序遍历递归解法： 
+	 * 3.1前序遍历，中序遍历，后序遍历 前序遍历递归解法
+	 **(刷题写过这三个的完整代码，在同一文件夹下，preorder.java,inorder.java,postorder.java,讲解在l3.md)： 
 	 * （1）如果二叉树为空，空操作 
 	 * （2）如果二叉树不为空，访问根节点，前序遍历左子树，前序遍历右子树
 	 */
@@ -303,16 +205,11 @@ public class Demo {
 		Stack<TreeNode> stack = new Stack<TreeNode>();
 		TreeNode cur = root;
 		
-		while( true ){
+		while( !stack.isEmpty() ){
 			while(cur != null){		// 先添加一个非空节点所有的左孩子到栈
 				stack.push(cur);
 				cur = cur.left;
-			}
-			
-			if(stack.isEmpty()){
-				break;
-			}
-				
+			}	
 			// 因为此时已经没有左孩子了，所以输出栈顶元素
 			cur = stack.pop();
 			System.out.print(cur.val + " ");
@@ -335,7 +232,7 @@ public class Demo {
 	}
 	
 	/**
-	 *  后序遍历迭代解法
+	 *  后序遍历迭代解法1
 	 *  http://www.youtube.com/watch?v=hv-mJUs5mvU
 	 *  
 	 */
@@ -364,9 +261,44 @@ public class Demo {
 			System.out.print(output.pop().val + " ");
 		}
 	}
-
+/**
+	 *  后序遍历迭代解法2, one stack
+	 *  http://www.youtube.com/watch?v=hv-mJUs5mvU
+	 *  
+	 */
+	public ArrayList<Integer> postorderTraversal(TreeNode root) {
+		Stack<TreeNode> stack = new Stack<>();
+		ArrayList<Integer> postorder = new ArrayList<>();
+		TreeNode prev = null;
+		TreeNode curr = root;
+		
+		if(root == null) return postorder;
+		
+		stack.push(root);
+		while(!stack.empyt()){
+			curr = stack.peek();
+			// traverse down the tree
+			if(prev == null || prev.left==curr || prev.right==curr){
+				if (curr.left != null) {
+					stack.push(curr.left);
+				} else if (curr.right != null) {
+					stack.push(curr.right);
+				}
+			}else if (curr.left == prev){//traverse up from left
+				if (curr.right != null) {
+					stack.push(curr.right);
+				}
+			}else{// traverse up from right
+				postorder.add(curr.val);
+				stack.pop();
+			}
+			prev = curr;
+		}
+		
+		return postorder;
+	}
 	/**
-	 * 分层遍历二叉树（按层次从上往下，从左往右）迭代
+	 * 4.1 分层遍历二叉树（按层次从上往下，从左往右）迭代
 	 * 相当于广度优先搜索，使用队列实现。队列初始化，将根节点压入队列。当队列不为空，进行如下操作：弹出一个节点
 	 * ，访问，若左子节点或右子节点不为空，将其压入队列
 	 */
@@ -390,7 +322,7 @@ public class Demo {
 	}
 	
 	/**
-	 *  分层遍历二叉树（递归）
+	 *  4.2 分层遍历二叉树（递归）
 	 *  很少有人会用递归去做level traversal
 	 *  基本思想是用一个大的ArrayList，里面包含了每一层的ArrayList。
 	 *  大的ArrayList的size和level有关系
@@ -421,11 +353,17 @@ public class Demo {
 	
 
 	/**
-	 * 将二叉查找树变为有序的双向链表 要求不能创建新节点，只调整指针。 
+	 * 5. 将二叉查找树变为有序的双向链表 要求不能创建新节点，只调整指针。 （类似flatten Binary tree to linked list 那题的思路）
 	 * 递归解法：
 	 * 参考了http://stackoverflow.com/questions/11511898/converting-a-binary-search-tree-to-doubly-linked-list#answer-11530016
-	 * 感觉是最清晰的递归解法，但要注意递归完，root会在链表的中间位置，因此要手动
-	 * 把root移到链表头或链表尾
+	 * 感觉是最清晰的递归解法，但要注意递归完，root会在链表的中间位置，因此要手动把root移到链表头或链表尾
+
+（1）如果二叉树查找树为空，不需要转换，对应双向链表的第一个节点是NULL，最后一个节点是NULL
+（2）如果二叉查找树不为空：
+如果左子树为空，对应双向有序链表的第一个节点是根节点，左边不需要其他操作；
+如果左子树不为空，转换左子树，二叉查找树对应双向有序链表的第一个节点就是左子树转换后双向有序链表的第一个节点，同时将根节点和左子树转换后的双向有序链表的最后一个节点连接；(left<-->toot)
+如果右子树为空，对应双向有序链表的最后一个节点是根节点，右边不需要其他操作；
+如果右子树不为空，对应双向有序链表的最后一个节点就是右子树转换后双向有序链表的最后一个节点，同时将根节点和右子树转换后的双向有序链表的第一个节点连接。
 	 */
 	public static TreeNode convertBST2DLLRec(TreeNode root) {
 		root = convertBST2DLLSubRec(root);
@@ -436,10 +374,6 @@ public class Demo {
 		}
 		return root;
 	}
-	
-	/**
-	 *  递归转换BST为双向链表(DLL)
-	 */
 	public static TreeNode convertBST2DLLSubRec(TreeNode root){
 		if(root==null || (root.left==null && root.right==null)){
 			return root;
@@ -451,7 +385,7 @@ public class Demo {
 			while(tmp.right != null){	// 寻找最右节点
 				tmp = tmp.right;
 			}
-			tmp.right = root;		// 把左子树处理后结果和root连接
+			tmp.right = root;		// 把左子树转换成DLL后的最后一个节点和root连接
 			root.left = tmp;
 		}
 		if(root.right != null){		// 处理右子树
@@ -466,7 +400,7 @@ public class Demo {
 	}
 	
 	/**
-	 * 将二叉查找树变为有序的双向链表 迭代解法
+	 * 5.2 将二叉查找树变为有序的双向链表 迭代解法
 //	 * 类似inorder traversal的做法
 	 */
 	public static TreeNode convertBST2DLL(TreeNode root) {

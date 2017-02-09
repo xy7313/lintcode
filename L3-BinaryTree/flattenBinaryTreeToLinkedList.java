@@ -35,8 +35,7 @@ public class Solution {
             }else{
                 cur.right= stack.peek();
             }
-        }
-        
+        }   
     }
 }
 
