@@ -439,7 +439,7 @@ import java.util.Stack;
 	}
 
 	/**
-	 * 求二叉树第K层的节点个数   递归解法： 
+	 * 6.1 求二叉树第K层的节点个数   递归解法： 
 	 * （1）如果二叉树为空或者k<1返回0
 	 * （2）如果二叉树不为空并且k==1，返回1
 	 * （3）如果二叉树不为空且k>1，返回root左子树中k-1层的节点个数与root右子树k-1层节点个数之和
@@ -464,7 +464,7 @@ import java.util.Stack;
 	}
 	
 	/**
-	 *  求二叉树第K层的节点个数   迭代解法： 
+	 *  6.2 求二叉树第K层的节点个数   迭代解法： 
 	 *  同getDepth的迭代解法
 	 */
 	public static int getNodeNumKthLevel(TreeNode root, int k){
@@ -489,19 +489,17 @@ import java.util.Stack;
 				queue.add(cur.right);
 				nextLevelNodes++;
 			}
-			
 			if(currentLevelNodes == 0){ // 说明已经遍历完当前层的所有节点
 				currentLevelNodes = nextLevelNodes;		// 初始化下一层的遍历
 				nextLevelNodes = 0;
 				i++;			// 进入到下一层
 			}
-		}
-		
+		}		
 		return currentLevelNodes;
 	}
 
 	/**
-	 * 求二叉树中叶子节点的个数（递归）
+	 * 7.1. 求二叉树中叶子节点的个数（递归）
 	 */
 	public static int getNodeNumLeafRec(TreeNode root) {
 		// 当root不存在，返回空
@@ -519,7 +517,7 @@ import java.util.Stack;
 	}
 	
 	/**
-	 *  求二叉树中叶子节点的个数（迭代）
+	 *  7.2 求二叉树中叶子节点的个数（迭代）
 	 *  还是基于Level order traversal
 	 */
 	public static int getNodeNumLeaf(TreeNode root) {
@@ -548,7 +546,7 @@ import java.util.Stack;
 	}
 
 	/**
-	 * 判断两棵二叉树是否相同的树。
+	 * 8.1 判断两棵二叉树是否相同的树。
 	 * 递归解法： 
 	 * （1）如果两棵二叉树都为空，返回真
 	 * （2）如果两棵二叉树一棵为空，另一棵不为空，返回假 
@@ -573,15 +571,14 @@ import java.util.Stack;
 	}
 	
 	/**
-	 * 判断两棵二叉树是否相同的树（迭代）
+	 * 8.2 判断两棵二叉树是否相同的树（迭代）
 	 * 遍历一遍即可，这里用preorder
 	 */
 	public static boolean isSame(TreeNode r1, TreeNode r2) {
 		// 如果两个树都是空树，则返回true
 		if(r1==null && r2==null){
 			return true;
-		}
-		
+		}		
 		// 如果有一棵树是空树，另一颗不是，则返回false
 		if(r1==null || r2==null){
 			return false;
@@ -611,7 +608,7 @@ import java.util.Stack;
 	}
 
 	/**
-	 * 判断二叉树是不是平衡二叉树 递归解法： 
+	 * 9. 判断二叉树是不是平衡二叉树 递归解法： 
 	 * （1）如果二叉树为空，返回真
 	 * （2）如果二叉树不为空，如果左子树和右子树都是AVL树并且左子树和右子树高度相差不大于1，返回真，其他返回假
 	 */
@@ -619,19 +616,17 @@ import java.util.Stack;
 		if(root == null){			// 如果二叉树为空，返回真
 			return true;
 		}
-		
 		// 如果左子树和右子树高度相差大于1，则非平衡二叉树, getDepthRec()是前面实现过的求树高度的方法
 		if(Math.abs(getDepthRec(root.left) - getDepthRec(root.right)) > 1){
 			return false;
-		}
-		
+		}		
 		// 递归判断左子树和右子树是否为平衡二叉树
 		return isAVLRec(root.left) && isAVLRec(root.right);
 	}
 	
 
 	/**
-	 * 求二叉树的镜像 递归解法： 
+	 * 10. 求二叉树的镜像 递归解法： 
 	 * （1）如果二叉树为空，返回空
 	 * （2）如果二叉树不为空，求左子树和右子树的镜像，然后交换左子树和右子树
 	 */
@@ -662,7 +657,7 @@ import java.util.Stack;
 		return newNode;
 	}
 	
-	// 3. 判断两个树是否互相镜像
+	// 3. 判断两个树是否互相镜像(???)
 	public static boolean isMirrorRec(TreeNode r1, TreeNode r2){
 		// 如果两个树都是空树，则返回true
 		if(r1==null && r2==null){
@@ -684,7 +679,7 @@ import java.util.Stack;
 		return isMirrorRec(r1.left, r2.right) && isMirrorRec(r1.right, r2.left);
 	}
 	
-	// 1. 破坏原来的树，把原来的树改成其镜像
+	// 1. 破坏原来的树，把原来的树改成其镜像(preorder)
 	public static void mirror(TreeNode root) {
 		if(root == null){
 			return;
@@ -742,7 +737,7 @@ import java.util.Stack;
 	
 
 	/**
-	 * 求二叉树中两个节点的最低公共祖先节点 
+	 * 11. 求二叉树中两个节点的最低公共祖先节点 
 	 * 递归解法： 
 	 * （1）如果两个节点分别在根节点的左子树和右子树，则返回根节点
 	 * （2）如果两个节点都在左子树，则递归处理左子树；如果两个节点都在右子树，则递归处理右子树
@@ -865,11 +860,10 @@ import java.util.Stack;
 	}
 
 	/**
-	 * 求二叉树中节点的最大距离 即二叉树中相距最远的两个节点之间的距离。 (distance / diameter)
+	 * 12. 求二叉树中节点的最大距离 即二叉树中相距最远的两个节点之间的距离。 (distance / diameter)
 	 * 递归解法： 
 	 * （1）如果二叉树为空，返回0，同时记录左子树和右子树的深度，都为0
-	 * （2）如果二叉树不为空，最大距离要么是左子树中的最大距离，要么是右子树中的最大距离，
-	 * 要么是左子树节点中到根节点的最大距离+右子树节点中到根节点的最大距离，
+	 * （2）如果二叉树不为空，最大距离要么是左子树中的最大距离，要么是右子树中的最大距离，要么是左子树节点中到根节点的最大距离+右子树节点中到根节点的最大距离，
 	 * 同时记录左子树和右子树节点中到根节点的最大距离。
 	 * 
 	 * http://www.cnblogs.com/miloyip/archive/2010/02/25/1673114.html
@@ -992,8 +986,16 @@ import java.util.Stack;
 	/**
 	 * 14.  判断二叉树是不是完全二叉树（递归）
 	 * http://stackoverflow.com/questions/1442674/how-to-determine-whether-a-binary-tree-is-complete
+
+	 若设二叉树的深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全
+二叉树。
+有如下算法，按层次（从上到下，从左到右）遍历二叉树，当遇到一个节点的左子树为空时，则该节点右子树必须为空，且后面遍历的节点左
+右子树都必须为空，否则不是完全二叉树。
+
 	 * 
 	 */
+	 	
+	// 递归判断是否complete
 	public static boolean isCompleteBinaryTreeRec(TreeNode root){
 //		Pair notComplete = new Pair(-1, false);
 //		return !isCompleteBinaryTreeSubRec(root).equalsTo(notComplete);
