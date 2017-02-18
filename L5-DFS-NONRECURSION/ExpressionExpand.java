@@ -50,4 +50,12 @@ class Element {
         }
         return sb.toString();
     }
+    //也可以这么实现，看起来代码简洁了，但是时间复杂度和空间复杂度更高
+    // private String popStack(Stack<Element> stack) {
+    //     String re = "";
+    //     while (!stack.isEmpty() && stack.peek().str != null) {
+    //         re = stack.pop().str+re;
+    //     }
+    //     return re;
+    // }
 }
