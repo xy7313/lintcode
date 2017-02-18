@@ -5,6 +5,7 @@ public class Solution {
       * @param dict, a set of string
       * @return an integer
       */
+      // O(N*L) N:dict.length, L: average lengtho of words
     public int ladderLength(String start, String end, Set<String> dict) {
         if (dict == null) {
             return 0;
