@@ -16,7 +16,7 @@ public class Solution {
             return node;
         }
 
-        // use dfs algorithm to traverse the graph and get all nodes.
+        // use bfs algorithm to traverse the graph and get all nodes.
         ArrayList<UndirectedGraphNode> nodes = getNodes(node);
         
         // store the old->new mapping information in a hash map
