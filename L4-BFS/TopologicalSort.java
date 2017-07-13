@@ -51,3 +51,12 @@ public class Solution {
         return map;
     }
 }
+
+//dfs
+for(n:cur.neighbors){
+    if(!visited[u]){
+        visited[u]= true;
+        dfs(n);
+    }
+}
+res.add(cur)

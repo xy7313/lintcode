@@ -1,6 +1,6 @@
-##sort
+## sort
 
-####1. quickSort
+#### 1. quickSort
 61B 中讲的quickSort的思路：
 arr[low]...arr[high], i point to low, j point to high
 
@@ -17,7 +17,7 @@ arr[low]...arr[high], i point to low, j point to high
 1. 和pivot比较的时候，一定是>=/<=,代码里`a[left]<pivot`是为了确保指针停在a[left]>=pivot的位置
 
 
-####2. mergeSort
+#### 2. mergeSort
 1. divide-conquer
 2. extra O(n) space, can not implement in place
 3. merge: 相当于merge的套路了
